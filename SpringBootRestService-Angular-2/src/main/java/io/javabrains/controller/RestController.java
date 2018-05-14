@@ -8,7 +8,7 @@ public class RestController {
 	@RequestMapping("/hi")
 	public String sayHi() {
 		
-		return "hi";
+		return "hi Sree";
 	}
 
 }
