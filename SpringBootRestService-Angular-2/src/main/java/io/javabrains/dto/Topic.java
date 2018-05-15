@@ -23,6 +23,7 @@ public class Topic {
 	}
 
 	public void setDescription(String description) {
+		System.out.println("This is setdesription");
 		this.description = description;
 	}
 
