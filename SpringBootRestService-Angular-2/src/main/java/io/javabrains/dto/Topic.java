@@ -1,5 +1,8 @@
 package io.javabrains.dto;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Topic {
 	
 	public String getId() {

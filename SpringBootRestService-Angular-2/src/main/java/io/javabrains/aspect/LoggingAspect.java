@@ -11,7 +11,7 @@ import io.javabrains.dto.Topic;
 @Component
 public class LoggingAspect {
 
-	//@Before("execution(public Topic getTopic(..))")
+	@Before("execution(public String sayHi())")
 	public void LoggingAdvice() {
 		
 		System.out.println("listed All topics for Sree hi");
