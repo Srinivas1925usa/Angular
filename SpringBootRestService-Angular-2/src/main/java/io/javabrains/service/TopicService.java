@@ -21,8 +21,14 @@ public class TopicService {
 
 	public List<Topic> getAllTopics() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("getAllTopics printed");
 		return topics;
+	}
+
+	public Topic getTopic(String id) {
+		// TODO Auto-generated method stub
+		return topics.stream().filter(t->t.getId().equals(id)).findFirst().get();
+		
 	}			
 	
 }
