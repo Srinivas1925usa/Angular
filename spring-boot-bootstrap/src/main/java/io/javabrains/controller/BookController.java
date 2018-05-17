@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.http.HttpStatus;
 
+import io.javabrains.exception.BookIdMismatchException;
 import io.javabrains.exception.BookNotFoundException;
 import io.javabrains.model.Book;
 import io.javabrains.repo.BookRepository;
@@ -51,9 +52,10 @@ public class BookController {
 
 	    @DeleteMapping("/{id}")
 	    public void delete(@PathVariable long id) {
-	        bookRepository.findById(id)
-	          .orElseThrow(BookNotFoundException::new);
-	        bookRepository.deleteById(id);
+	    	
+	    	bookRepository.findById(id).orElseThrow(BookNotFoundException::new);
+	    	bookRepository.deleteById(id);
+	    	
 	    }
 
 	    @PutMapping("/{id}")
