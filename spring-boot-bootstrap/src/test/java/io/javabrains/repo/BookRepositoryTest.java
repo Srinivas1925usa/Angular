@@ -1,9 +1,8 @@
 package io.javabrains.repo;
 
-import static org.junit.Assert.assertThat;
 import static org.assertj.core.api.Assertions.*;
 
-import java.util.Optional;
+
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
