@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Book {
-	
+
 	public long getId() {
 		return id;
 	}
@@ -30,6 +30,18 @@ public class Book {
 	}
 
 	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	/**
+	 * @param id
+	 * @param title
+	 * @param author
+	 */
+	public Book(long id, String title, String author) {
+		super();
+		this.id = id;
+		this.title = title;
 		this.author = author;
 	}
 

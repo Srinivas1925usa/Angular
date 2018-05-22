@@ -25,19 +25,25 @@ public class BookRepositoryTest {
 //Failed Test
 	
 	@Test
-	public void testCreateBook() {
+	public void testFindByTitle() {
 		
-		Book book = getBook();
+		Book book = new Book(15, "java", "Sree");
 		
-		Book saveInDB = entityManager.persist(book);
+		entityManager.persist(book);
 		entityManager.flush();
 		
-		Book  found = (Book) bookRepository.findByTitle(saveInDB.getTitle());
+	/*	Book book = getBook();
 		
-		assertThat(found).isEqualTo(saveInDB);
+		Book saveInDB = entityManager.persist(book);
+		//entityManager.flush();
+		
+		*/
+		Book  found = (Book) bookRepository.findByTitle(book.getTitle());
+		
+		assertThat(found).isEqualTo(book);
 	}
 	
-	private Book getBook() {
+	/*private Book getBook() {
 		
 		Book book = new Book();
 		book.setId(15);
@@ -46,5 +52,5 @@ public class BookRepositoryTest {
 		
 		return book;
 		
-	}
+	}*/
 }
