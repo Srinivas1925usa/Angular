@@ -2,6 +2,8 @@ package io.javabrains.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,10 +21,11 @@ import io.javabrains.exception.BookIdMismatchException;
 import io.javabrains.exception.BookNotFoundException;
 import io.javabrains.model.Book;
 import io.javabrains.repo.BookRepository;
+import io.javabrains.validation.SimpleValidation;
 
 @RestController
 @RequestMapping("/api/books")
-public class BookController {
+	class BookController {
 	
 	@Autowired
 	private BookRepository bookRepository;
@@ -45,8 +48,11 @@ public class BookController {
 
 	    @PostMapping
 	    @ResponseStatus(HttpStatus.CREATED)
-	    public Book create(@RequestBody Book book) {
-	        Book book1 = bookRepository.save(book);
+	    public Book create(@Valid @RequestBody Book book) {
+	    	
+	    	//SimpleValidation.validate(book); //to enable Simple Validation
+	    	
+	    	Book book1 = bookRepository.save(book);
 	        return book1;
 	    }
 

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 
+@SuppressWarnings("deprecation")
 @Controller
 public class MyErrorController implements ErrorController {
 
@@ -19,10 +20,11 @@ public class MyErrorController implements ErrorController {
 		return "/error";																				
 	}
 	
-	 @GetMapping(value = "/error")
 	
+	@GetMapping(value = "/error")	
 	public String handleError(HttpServletRequest request) {
 		
+		@SuppressWarnings("deprecation")
 		Object status = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
 		
 		if (status!=null) {

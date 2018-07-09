@@ -5,6 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
+import io.javabrains.validation.ValidBook;
 
 @Entity
 public class Book {
@@ -44,18 +48,24 @@ public class Book {
 		this.title = title;
 		this.author = author;
 	}
+	
+	public Book() {
+		super();
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
 	@Column (nullable = false, unique=true)
+	@NotBlank(message="Name cannot be null")
+	//@ValidBook(value = "")// to enable annotation validation 
 	private String title;
 	
 	@Column (nullable = false)
+	//@ValidBook(value = "")
+	@NotBlank(message="Name cannot be null")
 	private String author;
-
-
 	}
 
 
